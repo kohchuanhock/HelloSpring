@@ -1,0 +1,7 @@
+<ivy-module version="2.0">
+    <info organisation="evankoh.com" module="afc-commons"/>
+    <dependencies>
+        <dependency org="commons-logging" name="commons-logging" rev="1.2"/>
+        <dependency org="org.springframework" name="spring-context" rev="4.1.0.RELEASE"/>
+    </dependencies>
+</ivy-module>

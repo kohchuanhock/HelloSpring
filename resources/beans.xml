@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+        <!-- default-init-method="defaultInit" default-destroy-method="defaultDestroy"> -->
+    <bean id="helloWorld" class="com.tutorialspoint.HelloWorld" init-method="init" destroy-method="destroy" lazy-init="true">
+        <property name="message" value="Hello World2!" />
+        <property name="message2" value="Hello!!"/>
+    </bean>
+
+    <bean id="helloIndia" class="com.tutorialspoint.HelloIndia" parent="helloWorld" lazy-init="true">
+        <property name="message2" value="Hello India"/>
+        <property name="message3" value="Hello India3"/>
+    </bean>
+
+    <bean id="singleton" class="com.tutorialspoint.HelloWorld" scope="singleton" lazy-init="true">
+        <property name="message" value="singleton"/>
+    </bean>
+
+    <bean id="prototype" class="com.tutorialspoint.HelloWorld" scope="prototype" lazy-init="true">
+        <property name="message" value="prototype"/>
+    </bean>
+
+    <!-- <bean class="com.tutorialspoint.InitHelloWorld" lazy-init="true" /> -->
+
+    <!-- Definition for textEditor bean -->
+    <bean id="textEditor" class="com.tutorialspoint.TextEditor" lazy-init="true">
+        <!-- A final note, in case you are passing a reference to an object, you need to use ref attribute of
+        <constructor-arg> tag and if you are passing a value directly then you should use value attribute
+        as shown above. -->
+
+        <!-- Finally and the best way to pass constructor arguments, use the index attribute to specify
+        explicitly the index of constructor arguments. Here the index is 0 based. -->
+        <constructor-arg index="0" ref="spellChecker"/>
+    </bean>
+    <!-- Definition for spellChecker bean -->
+    <bean id="spellChecker" class="com.tutorialspoint.SpellChecker" lazy-init="true">
+    </bean>
+
+    <bean id="setterTextEditor" class="com.tutorialspoint.TextEditor" lazy-init="true">
+        <property name="spellChecker" ref="spellChecker"/>
+    </bean>
+
+    <!-- Definition for textEditor bean using inner bean -->
+    <bean id="innerBeanTextEditor" class="com.tutorialspoint.TextEditor" lazy-init="true">
+        <property name="spellChecker">
+            <bean id="innerBeanSpellChecker" class="com.tutorialspoint.SpellChecker"/>
+        </property>
+    </bean>
+
+    <!-- Definition for javaCollection -->
+    <bean id="javaCollection"
+          class="com.tutorialspoint.JavaCollection">
+    <!-- results in a setAddressList(java.util.List) call -->
+    <property name="addressList">
+        <list>
+            <value>INDIA</value>
+            <value>Pakistan</value>
+            <value>USA</value>
+            <value>USA</value>
+        </list>
+    </property>
+    <!-- results in a setAddressSet(java.util.Set) call -->
+    <property name="addressSet">
+        <set>
+            <value>INDIA</value>
+            <value>Pakistan</value>
+            <value>USA</value>
+            <value>USA</value>
+        </set>
+    </property>
+    <!-- results in a setAddressMap(java.util.Map) call -->
+        <property name="addressMap">
+            <map>
+                <entry key="1" value="NDIA"/>
+                <entry key="2" value="Pakistan"/>
+                <entry key="3" value="USA"/>
+                <entry key="4" value="USA"/>
+            </map>
+        </property>
+        <!-- results in a setAddressProp(java.util.Properties) call -->
+        <property name="addressProp">
+            <props>
+                <prop key="one">INDIA</prop>
+                <prop key="two">Pakistan</prop>
+                <prop key="three">USA</prop>
+                <prop key="four">USA</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="exampleBean" class="com.tutorialspoint.ExampleBean">
+        <property name="email" value=""/>
+        <property name="email2"><null/></property>
+    </bean>
+
+    <!-- There exists three types of autowiring (byName, byType, constructors). Do not look very useful. Hence did not try the examples. -->
+</beans>

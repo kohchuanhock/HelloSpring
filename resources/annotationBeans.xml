@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd" default-lazy-init="true">
+    <context:annotation-config/>
+    <!-- Definition for student bean -->
+    <bean id="student" class="com.annotations.Student">
+        <property name="name" value="Zara" />
+        <!-- try without passing age and check the result -->
+        <property name="age" value="11" />
+    </bean>
+
+    <!-- Definition for textEditor bean without constructor-arg.
+        It is able to find it byType since it knows that is requires com.annotation.SpellChecker for setSpellChecker
+        -->
+    <bean id="textEditorAutoWiredProperties" class="com.annotations.TextEditorAutoWiredProperties" />
+
+    <bean id="textEditorAutoWiredSetter" class="com.annotations.TextEditorAutoWiredSetter" />
+
+    <bean id="textEditorAutoWiredConstructor" class="com.annotations.TextEditorAutoWiredConstructor" />
+
+    <bean id="textEditorResource" class="com.annotations.TextEditorResource" />
+
+    <!-- Definition for spellChecker bean -->
+    <bean id="spellChecker" class="com.annotations.SpellChecker" />
+
+    <bean id="spellChecker2" class="com.annotations.SpellChecker">
+        <property name="name" value="Resource Spell Checker" />
+    </bean>
+
+    <!-- Definition for profile bean -->
+    <bean id="profile" class="com.annotations.Profile" />
+
+    <!-- Definition for student1 bean -->
+    <bean id="student1" class="com.annotations.Student" >
+        <property name="name" value="Zara" />
+        <property name="age" value="11"/>
+    </bean>
+
+    <!-- Definition for student2 bean -->
+    <bean id="student2" class="com.annotations.Student" >
+        <property name="name" value="Nuha" />
+        <property name="age" value="2"/>
+    </bean>
+
+    <bean id="helloWorld" class="com.annotations.HelloWorld" >
+        <property name="message" value="Hello World!"/>
+    </bean>
+
+</beans>
