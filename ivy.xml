@@ -3,5 +3,6 @@
     <dependencies>
         <dependency org="commons-logging" name="commons-logging" rev="1.2"/>
         <dependency org="org.springframework" name="spring-context" rev="4.1.0.RELEASE"/>
+        <dependency org="org.springframework" name="spring-aop" rev="4.1.0.RELEASE"/>
     </dependencies>
 </ivy-module>
