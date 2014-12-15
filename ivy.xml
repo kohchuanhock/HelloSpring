@@ -5,6 +5,9 @@
         <dependency org="org.springframework" name="spring-context" rev="4.1.0.RELEASE"/>
         <dependency org="org.springframework" name="spring-aop" rev="4.1.0.RELEASE"/>
         <dependency org="org.springframework" name="spring-jdbc" rev="4.1.0.RELEASE"/>
+        <dependency org="org.springframework" name="spring-asm" rev="3.1.4.RELEASE"/>
+        <dependency org="org.springframework" name="spring-webmvc" rev="4.1.0.RELEASE"/>
+        <dependency org="org.springframework" name="spring-web" rev="4.1.0.RELEASE"/>
         <dependency org="mysql" name="mysql-connector-java" rev="5.1.32"/>
     </dependencies>
 </ivy-module>
